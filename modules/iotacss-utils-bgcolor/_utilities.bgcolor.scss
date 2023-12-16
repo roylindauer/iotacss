@@ -1,17 +1,15 @@
 // Background Color Utility
 
 
-
-
 // Options
 
-$iota-utils-bgcolor           : true;
+$iota-utils-bgcolor: true;
 
-$iota-utils-bgcolor-namespace : 'bgcolor-' !default;
+$iota-utils-bgcolor-namespace: 'bgcolor-' !default;
 
-$iota-utils-bgcolor-names     : () !default;
+$iota-utils-bgcolor-names: () !default;
 
-
+$iota-utils-bgcolor-use-variable-names: false !default;
 
 
 // Helper Local Variables
@@ -19,14 +17,17 @@ $iota-utils-bgcolor-names     : () !default;
 $iota-utils-bgcolor-var: $iota-global-utilities-namespace + $iota-utils-bgcolor-namespace;
 
 
-
-
 // Background Color Utilities
 
 @each $bgcolor-name, $bgcolor-value in $iota-utils-bgcolor-names {
-  
-  .#{$iota-utils-bgcolor-var + $bgcolor-name} {
-    background-color: #{$bgcolor-value} !important;
+  @if $iota-utils-bgcolor-use-variable-names {
+    .#{$iota-utils-bgcolor-var + $bgcolor-name} {
+      background-color: --#{$bgcolor-name} !important;
+    }
+  } @else {
+    .#{$iota-utils-bgcolor-var + $bgcolor-name} {
+      background-color: #{$bgcolor-value} !important;
+    }
   }
 
 }

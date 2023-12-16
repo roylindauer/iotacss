@@ -1,17 +1,15 @@
 // Color Utility
 
 
-
-
 // Options
 
-$iota-utils-color           : true;
+$iota-utils-color: true;
 
-$iota-utils-color-namespace : 'color-' !default;
+$iota-utils-color-namespace: 'color-' !default;
 
-$iota-utils-color-names     : () !default;
+$iota-utils-color-names: () !default;
 
-
+$iota-utils-color-use-variable-names: false !default;
 
 
 // Helper Local Variables
@@ -19,14 +17,17 @@ $iota-utils-color-names     : () !default;
 $iota-utils-color-var-color: $iota-global-utilities-namespace + $iota-utils-color-namespace;
 
 
-
-
 // Color Utilities
 
 @each $color-name, $color-value in $iota-utils-color-names {
-  
-  .#{$iota-utils-color-var-color + $color-name} {
-    color: #{$color-value} !important;
-  }
 
+  @if $iota-utils-color-use-variable-names {
+    .#{$iota-utils-color-var-color + $color-name} {
+      color: --#{$color-name} !important;
+    }
+  } @else {
+    .#{$iota-utils-color-var-color + $color-name} {
+      color: #{$color-value} !important;
+    }
+  }
 }
