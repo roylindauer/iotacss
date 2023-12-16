@@ -22,7 +22,7 @@ $iota-utils-bgcolor-var: $iota-global-utilities-namespace + $iota-utils-bgcolor-
 @each $bgcolor-name, $bgcolor-value in $iota-utils-bgcolor-names {
   @if $iota-utils-bgcolor-use-variable-names {
     .#{$iota-utils-bgcolor-var + $bgcolor-name} {
-      background-color: --#{$bgcolor-name} !important;
+      background-color: var(--#{$bgcolor-name}) !important;
     }
   } @else {
     .#{$iota-utils-bgcolor-var + $bgcolor-name} {

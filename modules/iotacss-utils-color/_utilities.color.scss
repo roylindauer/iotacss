@@ -23,7 +23,7 @@ $iota-utils-color-var-color: $iota-global-utilities-namespace + $iota-utils-colo
 
   @if $iota-utils-color-use-variable-names {
     .#{$iota-utils-color-var-color + $color-name} {
-      color: --#{$color-name} !important;
+      color: var(--#{$color-name}) !important;
     }
   } @else {
     .#{$iota-utils-color-var-color + $color-name} {
